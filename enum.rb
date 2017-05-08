@@ -149,7 +149,7 @@ module Enumerable
 
     self.my_each do |item|
 
-      new_array << yield item
+      new_array << (yield item)
     end
 
 
@@ -164,10 +164,64 @@ module Enumerable
 
   end
 
+  def my_inject (argument = 1)
+
+    temp = argument
+
+    if temp == 0
+      temp = 1
+
+    end
+
+
+
+
+    self.my_each do |element|
+
+      temp = yield temp, element
+
+
+    end
+
+
+
+
+    puts "Alles addiert ergibt: #{temp}"
+    return temp
+
+
+
+  end
+
+  def multiply_els(array)
+
+
+    number = array.my_inject do |accu, item|
+
+      accu * item
+
+
+    end
+
+    puts "All multiplied togehter is : #{number}"
+
+
+
+  end
+
 
 end
 
-array = [2, 2, 7, 7]
+array = [2, 2, 7, 7, 2]
+
+multiply_els(array)
+
+array.my_inject 4 do |result, element|
+
+
+  result + element
+
+end
 
 array.my_map do |item|
 
