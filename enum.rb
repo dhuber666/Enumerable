@@ -193,21 +193,23 @@ module Enumerable
 
   end
 
-  def multiply_els(array)
 
 
-    number = array.my_inject do |accu, item|
 
-      accu * item
+end
+
+def multiply_els(array)
 
 
-    end
+  number = array.my_inject do |accu, item|
 
-    puts "All multiplied togehter is : #{number}"
-
+    accu * item
 
 
   end
+
+  puts "All multiplied togehter is : #{number}"
+
 
 
 end
